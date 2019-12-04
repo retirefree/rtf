@@ -4,13 +4,14 @@ import TestimonialsSection from './sections/testimonials';
 import HeroSection from './sections/hero';
 import SearchQuotesSection from './sections/search_quotes';
 import AnnuitySchoolSection from './sections/annuity_school';
+import { withRouter } from "react-router-dom";
 
 class Home extends Component {
   render() {
     return (
         <div>
           <HeroSection/>
-          <SearchQuotesSection/>
+          <SearchQuotesSection history={this.props.history}/>
           <AnnuitySchoolSection/>
           <ServicesSection/>
           <TestimonialsSection/>
@@ -19,4 +20,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);

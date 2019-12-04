@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
+import qs from 'qs';
 
-import AnnuityTable from './sections/annuity_table'
+import AnnuityTable from './sections/annuity_table';
+import InvestmentAmountInput from './sections/amount_input';
+import FederalStateSelect from './sections/federal_state_select';
+import TermYearsSelect from './sections/term_years_select';
 
-function Quotes() {
+const DEFAULT_AMOUNT_DOLLARS = 50000;
+const DEFAULT_FEDERAL_STATE = 'CA';
+const DEFAULT_TERM_YEARS = 5;
+
+function Quotes({ match, location }) {
+  var params = qs.parse(location.search, { ignoreQueryPrefix: true });
+  const initAmountDollars = parseInt(params.amount || DEFAULT_AMOUNT_DOLLARS);
+  const initFederalState = params.state || DEFAULT_FEDERAL_STATE;
+  const initTermYears = parseInt(params.term || DEFAULT_TERM_YEARS);
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true); 
+
+  const [amountDollars, setAmountDollars] = useState(initAmountDollars);
+  const [federalState, setFederalState] = useState(initFederalState);
+  const [termYears, setTermYears] = useState(initTermYears);
 
   return (
     <>
@@ -38,92 +54,18 @@ function Quotes() {
                 <form action="#" className="search-property-1">
                   <div className="row">
                     <div className="col-lg align-items-end search-filters">
-                      <div className="form-group">
-                        <label htmlFor="#">Investment Amount</label>
-                        <div className="form-field">
-                        {/* <!-- <div className="icon"><span className="ion-ios-search"></span></div> --> */}
-                          <div className="icon">$</div>
-                          <input type="text" className="form-control" placeholder="100,000"/>
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="#">State</label>
-                        <div className="form-field">
-                          <div className="select-wrap">
-                            <div className="icon"><span className="ion-ios-arrow-down"></span></div>
-                            <select name="" id="" className="form-control">
-                              <option value="">Alabama</option>
-                              <option value="">Alaska</option>
-                              <option value="">Arizona</option>
-                              <option value="">Arkansas</option>
-                              <option value="">California</option>
-                              <option value="">Colorado</option>
-                              <option value="">Connecticut</option>
-                              <option value="">Delaware</option>
-                              <option value="">Florida</option>
-                              <option value="">Georgia</option>
-                              <option value="">Hawaii</option>
-                              <option value="">Idaho</option>
-                              <option value="">Illinois</option>
-                              <option value="">Indiana</option>
-                              <option value="">Iowa</option>
-                              <option value="">Kansas</option>
-                              <option value="">Kentucky</option>
-                              <option value="">Louisiana</option>
-                              <option value="">Maine</option>
-                              <option value="">Maryland</option>
-                              <option value="">Massachusetts</option>
-                              <option value="">Michigan</option>
-                              <option value="">Minnesota</option>
-                              <option value="">Mississippi</option>
-                              <option value="">Missouri</option>
-                              <option value="">Montana</option>
-                              <option value="">Nebraska</option>
-                              <option value="">Nevada</option>
-                              <option value="">New Hampshire</option>
-                              <option value="">New Jersey</option>
-                              <option value="">New Mexico</option>
-                              <option value="">New York</option>
-                              <option value="">North Carolina</option>
-                              <option value="">North Dakota</option>
-                              <option value="">Ohio</option>
-                              <option value="">Oklahoma</option>
-                              <option value="">Oregon</option>
-                              <option value="">Pennsylvania</option>
-                              <option value="">Rhode Island</option>
-                              <option value="">South Carolina</option>
-                              <option value="">South Dakota</option>
-                              <option value="">Tennessee</option>
-                              <option value="">Texas</option>
-                              <option value="">Utah</option>
-                              <option value="">Vermont</option>
-                              <option value="">Virginia</option>
-                              <option value="">Washington</option>
-                              <option value="">West Virginia</option>
-                              <option value="">Wisconsin</option>
-                              <option value="">Wyoming</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="#">Investment Term</label>
-                        <div className="form-field">
-                          <div className="select-wrap">
-                            <div className="icon"><span className="ion-ios-arrow-down"></span></div>
-                            <select name="" id="" className="form-control">
-                              <option value="">3 years</option>
-                              <option value="">4 years</option>
-                              <option value="">5 years</option>
-                              <option value="">6 years</option>
-                              <option value="">7 years</option>
-                              <option value="">8 years</option>
-                              <option value="">9 years</option>
-                              <option value="">10 years</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
+                      <InvestmentAmountInput
+                        initialAmountDollars={amountDollars}
+                        setAmountDollars={setAmountDollars} 
+                      />
+                      <FederalStateSelect
+                        initialFederalState={federalState}
+                        setFederalState={setFederalState}
+                      />
+                      <TermYearsSelect
+                        initialTermYears={termYears}
+                        setTermYears={setTermYears}
+                      />
                       <div className="form-group">
                         <label htmlFor="#">Financial Rating</label>
                         <div className="form-field">
