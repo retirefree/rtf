@@ -25,7 +25,7 @@ class QuoteBlock extends React.Component {
                     <div className="col-md-6 col-lg-2 justify-content-center counter-wrap ftco-animate">
                     <div className="block-18">
                         <div className="text text-border d-flex align-items-center">
-                        <strong className="number" data-number="2.55">2.55%</strong>
+                        <strong className="number" data-number="2.55">3.87%</strong>
                         <span>5 year</span>
                         </div>
                     </div>
@@ -33,7 +33,7 @@ class QuoteBlock extends React.Component {
                     <div className="col-md-6 col-lg-2 justify-content-center counter-wrap ftco-animate">
                         <div className="block-18">
                             <div className="text text-border d-flex align-items-center">
-                            <strong className="number" data-number="3.90">3.90%</strong>
+                            <strong className="number" data-number="3.90">3.89%</strong>
                             <span>7 year</span>
                             </div>
                         </div>
@@ -41,7 +41,7 @@ class QuoteBlock extends React.Component {
                     <div className="col-md-6 col-lg-2 justify-content-center counter-wrap ftco-animate">
                         <div className="block-18">
                             <div className="text d-flex align-items-center">
-                            <strong className="number" data-number="3.89">3.89%</strong>
+                            <strong className="number" data-number="3.89">4.00%</strong>
                             <span>10 year</span>
                             </div>
                         </div>
