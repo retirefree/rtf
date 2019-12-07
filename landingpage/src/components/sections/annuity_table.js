@@ -1,4 +1,6 @@
 import React from 'react';
+import querystring from 'querystring';
+
 import {
   useTable,
   useGroupBy,
@@ -126,10 +128,10 @@ function Table({ columns, data }) {
         This is just a very basic UI implementation:
       */}
       <div className="pagination d-flex justify-content-center">
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+        <button onClick={e => { e.preventDefault(); gotoPage(0); }} disabled={!canPreviousPage}>
           {'<<'}
         </button>{' '}
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+        <button onClick={e => { e.preventDefault(); previousPage()}} disabled={!canPreviousPage}>
           {'<'}
         </button>
         <span>
@@ -138,10 +140,10 @@ function Table({ columns, data }) {
           {' '}of{' '}
           <strong>{pageOptions.length}</strong>
         </span>
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
+        <button onClick={e => { e.preventDefault(); nextPage()}} disabled={!canNextPage}>
           {'>'}
         </button>{' '}
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+        <button onClick={e => { e.preventDefault(); gotoPage(pageCount - 1)}} disabled={!canNextPage}>
           {'>>'}
         </button>{' '}
       </div>
@@ -181,30 +183,6 @@ var formatter = new Intl.NumberFormat('en-US', {
 */
 
 class AnnuityTable extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: null,
-      isLoaded: false,
-      items: []
-    };
-  }
-
-  componentDidMount() {
-    fetch("https://koiehcvvmk.execute-api.us-east-2.amazonaws.com/prod/quotes")
-      .then(res => res.json())
-      .then((res) => {
-        this.setState({
-          items: res['quotes']
-        });
-      });
-  }
-
-  //let data = React.useMemo(() => makeData(10), []);
-  //console.log(data);
-  //onsole.log(annuityObjs);
-  // const data = annuityObjs;
-
   handleApply = (id) => {
     const { onApply } = this.props;
     if (!onApply) {
@@ -259,13 +237,7 @@ class AnnuityTable extends React.Component {
   ]
 
   render() {
-    const { items } = this.state;
-
-    // const columns = React.useMemo(
-    //   ,
-    //   []
-    // );
-
+    const items = this.props.items || [];
     return (
       <Styles>
         <Table columns={this.columns} data={items} />
