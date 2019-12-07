@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 class AnnuitySchool extends React.Component {
   render() {
@@ -15,13 +16,11 @@ class AnnuitySchool extends React.Component {
         <div className="col-md-3 d-flex ftco-animate">
           <div className="blog-entry justify-content-end">
           <div className="text">
-            <a href="blog-single.html" className="block-20 img" style={{backgroundImage: "url('images/image_1.jpg')"}}>
+            <a href="/school#description-1" className="block-20 img" style={{backgroundImage: "url('images/image_1.jpg')"}}>
             </a>
-            <h3 className="heading"><a href="#">1. Retirement 101: Social Security, 401k, IRA</a></h3>
+            <h3 className="heading"><a href="/school#description-1">1. What is an annuity?</a></h3>
             <div className="meta mb-3">
-            <div><a href="#">October 17, 2019</a></div>
-            <div><a href="#">Admin</a></div>
-            <div><a href="#" className="meta-chat"><span className="icon-chat"></span> 3</a></div>
+            <div><a href="/school#description-1">Dec 1, 2019</a></div>
             </div>
           </div>
           </div>
@@ -29,13 +28,25 @@ class AnnuitySchool extends React.Component {
         <div className="col-md-3 d-flex ftco-animate">
           <div className="blog-entry justify-content-end">
           <div className="text">
-            <a href="blog-single.html" className="block-20 img" style={{backgroundImage: "url('images/image_2.jpg')"}}>
+            <a href="/school#description-2" className="block-20 img" style={{backgroundImage: "url('images/image_2.jpg')"}}>
             </a>
-            <h3 className="heading"><a href="#">2. Annuities: Introduction</a></h3>
+            <h3 className="heading">
+              <a href="/school#description-2">2. Are annuities right for you?</a>
+              </h3>
             <div className="meta mb-3">
-            <div><a href="#">October 17, 2019</a></div>
-            <div><a href="#">Admin</a></div>
-            <div><a href="#" className="meta-chat"><span className="icon-chat"></span> 3</a></div>
+            <div><a href="/school#description-2">Dec 3, 2019</a></div>
+            </div>
+          </div>
+          </div>
+        </div>        
+        <div className="col-md-3 d-flex ftco-animate">
+          <div className="blog-entry justify-content-end">
+          <div className="text">
+            <a href="/school#description-3" className="block-20 img" style={{backgroundImage: "url('images/image_3.jpg')"}}>
+            </a>
+            <h3 className="heading"><a href="/school#description-3">3. Annuity purchase FAQs</a></h3>
+            <div className="meta mb-3">
+            <div><a href="/school#description-3">Dec 5, 2019</a></div>
             </div>
           </div>
           </div>
@@ -43,27 +54,11 @@ class AnnuitySchool extends React.Component {
         <div className="col-md-3 d-flex ftco-animate">
           <div className="blog-entry justify-content-end">
           <div className="text">
-            <a href="blog-single.html" className="block-20 img" style={{backgroundImage: "url('images/image_3.jpg')"}}>
+            <a href="/school#description-4" className="block-20 img" style={{backgroundImage: "url('images/image_4.jpg')"}}>
             </a>
-            <h3 className="heading"><a href="#">3. Fixed and Income Annuities</a></h3>
+            <h3 className="heading"><a href="/school#description-4">4. How to buy annuities online?</a></h3>
             <div className="meta mb-3">
-            <div><a href="#">October 17, 2019</a></div>
-            <div><a href="#">Admin</a></div>
-            <div><a href="#" className="meta-chat"><span className="icon-chat"></span> 3</a></div>
-            </div>
-          </div>
-          </div>
-        </div>
-        <div className="col-md-3 d-flex ftco-animate">
-          <div className="blog-entry justify-content-end">
-          <div className="text">
-            <a href="blog-single.html" className="block-20 img" style={{backgroundImage: "url('images/image_4.jpg')"}}>
-            </a>
-            <h3 className="heading"><a href="#">4. Designing a Retirement Plan</a></h3>
-            <div className="meta mb-3">
-            <div><a href="#">October 17, 2019</a></div>
-            <div><a href="#">Admin</a></div>
-            <div><a href="#" className="meta-chat"><span className="icon-chat"></span> 3</a></div>
+            <div><a href="/school#description-4">Dec 7, 2019</a></div>
             </div>
           </div>
           </div>
