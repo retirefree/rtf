@@ -29,9 +29,9 @@ class NavBar extends React.Component {
                         <NavLink to="/quotes" className="nav-item" activeClassName="active">
                             <span className="nav-link">Quotes</span>
                         </NavLink>
-                        {/* <NavLink to="/school" className="nav-item" activeClassName="active">
-                            <span className="nav-link">School</span>
-                        </NavLink> */}
+                        <NavLink to="/school" className="nav-item" activeClassName="active">
+                            <span className="nav-link">Education</span>
+                        </NavLink>
                         <NavLink to="/contact" className="nav-item" activeClassName="active">
                             <span className="nav-link">Contact</span>
                         </NavLink>
