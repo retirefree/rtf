@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Button, Form } from 'react-bootstrap';
 import qs from 'qs';
 
 import AnnuityTable from './sections/annuity_table';
@@ -8,13 +7,16 @@ import FederalStateSelect from './sections/federal_state_select';
 import TermYearsSelect from './sections/term_years_select';
 import SelectInput from './sections/select_input';
 import SearchInput from './sections/search_input';
+import SignupModal from './SignupModal';
 
 const DEFAULT_AMOUNT_DOLLARS = 50000;
 const DEFAULT_FEDERAL_STATE = 'CA';
 const DEFAULT_TERM_YEARS = 5;
 const DEFAULT_RATING = "any";
 
-const QUOTES_URL = "https://koiehcvvmk.execute-api.us-east-2.amazonaws.com/prod/quotes";
+const BASE_URL = "https://koiehcvvmk.execute-api.us-east-2.amazonaws.com/prod";
+const QUOTES_URL = `${BASE_URL}/quotes`;
+const SIGNUP_URL = `${BASE_URL}/signup`;
 
 const RATING_OPTIONS = [
   { name: "Any", value: "any" },
@@ -66,6 +68,21 @@ function Quotes({ match, location }) {
   const handleSearchQuotes = (event) => {
     event.preventDefault();
     reloadQuotes();
+  }
+
+  const handleSignup = (firstName, lastName, email) => {
+    console.log(`Signing up with ${firstName} ${lastName} ${email}`);
+    params = {
+      "first_name": firstName,
+      "last_name": lastName,
+      "email": email,
+     };
+
+    fetch(SIGNUP_URL, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(params)
+     });
   }
 
   useEffect(reloadQuotes, []);
@@ -144,47 +161,11 @@ function Quotes({ match, location }) {
         </section>
       </div>
 
-      <Modal show={show} onHide={handleClose} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Create Account</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="formBasicFirstName">
-              <Form.Label>First Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter first name" />
-            </Form.Group>
-
-            <Form.Group controlId="formBasicLastName">
-              <Form.Label>Last Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter last name" />
-            </Form.Group>
-
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email Address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-            </Form.Group>
-
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-            {/* <Form.Group controlId="formBasicCheckbox">
-              <Form.Check type="checkbox">
-                <Form.Check.Input type="checkbox" />
-                <Form.Check.Label>
-                  I accept the <a href="terms.html" target="_blank">Terms and Conditions</a>
-                </Form.Check.Label>
-              </Form.Check>
-            </Form.Group> */}
-            <Button variant="primary" type="submit" size="lg">
-              Sign Up
-            </Button>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-        </Modal.Footer>
-      </Modal>
+      <SignupModal 
+        show={show} 
+        onSignup={handleSignup} 
+        onClose={handleClose} 
+      />
     </>
   );
 }
