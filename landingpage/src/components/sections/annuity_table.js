@@ -229,7 +229,10 @@ class AnnuityTable extends React.Component {
       Cell: ({ cell: { value } }) => (
         <button 
           className="apply-button" 
-          onClick={() => this.handleApply(value)}>
+          onClick={e => {
+            e.preventDefault();
+            this.handleApply(value)
+            }}>
             Apply Now >
         </button>
       ),
