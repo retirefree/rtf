@@ -7,9 +7,10 @@ def publish_lead(first_name, last_name, email, product_id):
   scope = ['https://spreadsheets.google.com/feeds',
           'https://www.googleapis.com/auth/drive']
 
-  creds_json = os.getenv('GOOG_CREDS')
-  with open("google_creds.json", "w") as creds_file:
-    creds_file.write(creds_json)
+  if not os.path.exists("google_creds.json"):
+    creds_json = os.getenv('GOOG_CREDS')
+    with open("google_creds.json", "w") as creds_file:
+      creds_file.write(creds_json)
   credentials = ServiceAccountCredentials.from_json_keyfile_name(
     "google_creds.json", scope)
 
