@@ -35,10 +35,17 @@ function Quotes({ match, location }) {
   const initFederalState = params.state || DEFAULT_FEDERAL_STATE;
   const initTermYears = parseInt(params.term || DEFAULT_TERM_YEARS);
 
+  const [product, setProduct] = useState(0);
+
   const [show, setShow] = useState(false);
+  const [signupCompleted, setSignupCompleted] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true); 
+  const handleShow = id => {
+    setSignupCompleted(false);
+    setProduct(id);
+    setShow(true); 
+  }
 
   const [amountDollars, setAmountDollars] = useState(initAmountDollars);
   const [federalState, setFederalState] = useState(initFederalState);
@@ -70,19 +77,21 @@ function Quotes({ match, location }) {
     reloadQuotes();
   }
 
-  const handleSignup = (firstName, lastName, email) => {
-    console.log(`Signing up with ${firstName} ${lastName} ${email}`);
+  const handleSignup = async (firstName, lastName, email, product) => {
+    //console.log(`Signing up with ${firstName} ${lastName} ${email}`);
     params = {
       "first_name": firstName,
       "last_name": lastName,
       "email": email,
+      "product": product
      };
 
-    fetch(SIGNUP_URL, {
+    await fetch(SIGNUP_URL, {
       method: 'POST',
-      headers: {'Content-Type':'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(params)
-     });
+    });
+    setSignupCompleted(true);
   }
 
   useEffect(reloadQuotes, []);
@@ -163,8 +172,10 @@ function Quotes({ match, location }) {
 
       <SignupModal 
         show={show} 
+        product={product}
         onSignup={handleSignup} 
         onClose={handleClose} 
+        completed={signupCompleted}
       />
     </>
   );

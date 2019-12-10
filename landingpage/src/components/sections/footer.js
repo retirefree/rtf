@@ -7,56 +7,38 @@ class Footer extends React.Component {
         <div className="container">
           <div className="row mb-5">
             <div className="col-md">
-              <div className="ftco-footer-widget mb-4">
-                <h2 className="ftco-heading-2">Findstate</h2>
-                <p>Have the best plan for your retirement</p>
-                <ul className="ftco-footer-social list-unstyled mt-5">
-                  <li className="ftco-animate"><a href="#"><span className="icon-twitter"></span></a></li>
-                  <li className="ftco-animate"><a href="#"><span className="icon-facebook"></span></a></li>
-                  <li className="ftco-animate"><a href="#"><span className="icon-instagram"></span></a></li>
+              <div className="ftco-footer-widget mb-4" align="left">
+                <h2 className="ftco-heading-2">RetireFree</h2>
+                <p>The best retirement plan for you</p>
+              </div>
+            </div>
+            <div className="col-md">
+              <div className="ftco-footer-widget mb-4 ml-md-4" align="left">
+                <h2 className="ftco-heading-2">About RetireFree</h2>
+                <ul className="list-unstyled">
+                  <li><a href="#"><span className="icon-long-arrow-right mr-2"></span>Home</a></li>
+                  <li><a href="/quotes"><span className="icon-long-arrow-right mr-2"></span>Quote</a></li>
+                  <li><a href="/contact"><span className="icon-long-arrow-right mr-2"></span>Contact us</a></li>
                 </ul>
               </div>
             </div>
             <div className="col-md">
-              <div className="ftco-footer-widget mb-4 ml-md-4">
-                <h2 className="ftco-heading-2">Community</h2>
+              <div className="ftco-footer-widget mb-4" align="left">
+                <h2 className="ftco-heading-2">Education</h2>
                 <ul className="list-unstyled">
-                  <li><a href="#"><span className="icon-long-arrow-right mr-2"></span>Search Quotes</a></li>
-                  <li><a href="#"><span className="icon-long-arrow-right mr-2"></span>Reviews</a></li>
-                  <li><a href="#"><span className="icon-long-arrow-right mr-2"></span>FAQs</a></li>
-                </ul>
-              </div>
-            </div>
-            {/* <!-- <div className="col-md">
-              <div className="ftco-footer-widget mb-4 ml-md-4">
-                <h2 className="ftco-heading-2">About Us</h2>
-                <ul className="list-unstyled">
-                  <li><a href="#"><span className="icon-long-arrow-right mr-2"></span>Our Story</a></li>
-                  <li><a href="#"><span className="icon-long-arrow-right mr-2"></span>Meet the team</a></li>
-                  <li><a href="#"><span className="icon-long-arrow-right mr-2"></span>Careers</a></li>
-                </ul>
-              </div>
-            </div> --> */}
-            <div className="col-md">
-              <div className="ftco-footer-widget mb-4">
-                <h2 className="ftco-heading-2">Company</h2>
-                <ul className="list-unstyled">
-          <li><a href="#"><span className="icon-long-arrow-right mr-2"></span>Our Story</a></li>
-          <li><a href="#"><span className="icon-long-arrow-right mr-2"></span>Meet the team</a></li>
-                  {/* <!-- <li><a href="#"><span className="icon-long-arrow-right mr-2"></span>Press</a></li> --> */}
-                  <li><a href="#"><span className="icon-long-arrow-right mr-2"></span>Contact</a></li>
-                  <li><a href="#"><span className="icon-long-arrow-right mr-2"></span>Careers</a></li>
+                  <li><a href="/school#description-1"><span className="icon-long-arrow-right mr-2"></span>What are Annuities?</a></li>
+                  <li><a href="/school#description-2"><span className="icon-long-arrow-right mr-2"></span>Are Annuities right for you?</a></li>
+                  <li><a href="/school#description-3"><span className="icon-long-arrow-right mr-2"></span>FAQs</a></li>
+                  <li><a href="/school#description-4"><span className="icon-long-arrow-right mr-2"></span>Buying Annuities Online</a></li>
                 </ul>
               </div>
             </div>
             <div className="col-md">
-              <div className="ftco-footer-widget mb-4">
+              <div className="ftco-footer-widget mb-4" align="left">
                 <h2 className="ftco-heading-2">Have a Questions?</h2>
                 <div className="block-23 mb-3">
                   <ul>
-                    {/* <!-- <li><span className="icon icon-map-marker"></span><span className="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li> --> */}
-                    {/* <li><a href="#"><span className="icon icon-phone"></span><span className="text">+1 888 656 1234</span></a></li> */}
-                    <li><a href="#"><span className="icon icon-envelope pr-4"></span><span className="text">info@easyannuities.org</span></a></li>
+                    <li><a href="mailto:info@easyannuities.org?subject=Question about annuities&body=Hello, %0D%0A%0D%0AI would like to know more about annuities.%0D%0A%0D%0AThanks%0D%0A%0D%0A"><span className="icon icon-envelope pr-4"></span><span className="text">info@easyannuities.org</span></a></li>
                   </ul>
                 </div>
               </div>
@@ -65,7 +47,7 @@ class Footer extends React.Component {
           <div className="row">
           <div className="col-md-12 text-center">
             <p>
-              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i className="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
             </p>
           </div>
         </div>
