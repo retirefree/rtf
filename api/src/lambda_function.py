@@ -1,5 +1,6 @@
 import json
 import re
+from excel_utils import publish_lead
 
 RATINGS = ['B-', 'B', 'B+', 'B++', 'A-', 'A', 'A+', 'A++']
 
@@ -36,8 +37,13 @@ def page_signup(event):
   body = event['body']
   if not body:
     return not_found_message()
-  body_obj = json.loads(body)
-  return success_message(body)
+  obj = json.loads(body)
+  publish_lead(
+    obj['first_name'], 
+    obj['last_name'], 
+    obj['email'], 
+    obj['product'])
+  return success_message({})
     
 def page_quotes(event):
   params = event['queryStringParameters']

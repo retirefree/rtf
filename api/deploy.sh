@@ -1,9 +1,17 @@
 OUT=${PWD}/build/function.zip
+ZIP="zip -9 -r --exclude=*__pycache__/*"
 
 pushd src
 
-zip -9 $OUT *.py
-zip -9 $OUT *.json
+$ZIP -9 $OUT *.py
+$ZIP -9 $OUT *.json
+$ZIP -9 $OUT token.pickle
+
+popd
+
+pushd rtfvenv/lib/python3.7/site-packages/
+
+$ZIP $OUT *
 
 popd
 
