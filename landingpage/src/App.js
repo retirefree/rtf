@@ -15,6 +15,8 @@ import Quotes from './components/Quotes';
 import School from './components/School';
 import Contact from './components/Contact';
 
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
+
 class App extends React.Component {
 	constructor(props) {
 		super(props);
