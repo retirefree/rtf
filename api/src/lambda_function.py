@@ -1,6 +1,6 @@
 import json
 import re
-from excel_utils import publish_lead
+from excel_utils import publish_lead, publish_message
 
 RATINGS = ['B-', 'B', 'B+', 'B++', 'A-', 'A', 'A+', 'A++']
 
@@ -30,6 +30,8 @@ def lambda_handler(event, context):
     return page_quotes(event)
   elif event['path'] == '/signup':
     return page_signup(event)
+  elif event['path'] == '/message':
+    return page_message(event)
   else:
     return not_found_message()
     
@@ -43,6 +45,18 @@ def page_signup(event):
     obj['last_name'], 
     obj['email'], 
     obj['product'])
+  return success_message({})
+
+def page_message(event):
+  body = event['body']
+  if not body:
+    return not_found_message()
+  obj = json.loads(body)
+  publish_message(
+    obj['contact_name'], 
+    obj['email_address'], 
+    obj['subject'], 
+    obj['message'])
   return success_message({})
     
 def page_quotes(event):

@@ -3,7 +3,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 import os
 
-def publish_lead(first_name, last_name, email, product_id):
+def setup_gc():
   scope = ['https://spreadsheets.google.com/feeds',
           'https://www.googleapis.com/auth/drive']
 
@@ -16,11 +16,26 @@ def publish_lead(first_name, last_name, email, product_id):
 
   gc = gspread.authorize(credentials)
 
+  return gc
+
+def publish_lead(first_name, last_name, email, product_id):
+  gc = setup_gc()
+
   res = gc.open("Auto Leads").sheet1.append_row(
     [first_name, last_name, email, product_id, str(datetime.now())], 
     value_input_option='USER_ENTERED')
 
-  print(f'Result from gspread: {res}')
+  print(f'Result from lead gspread: {res}')
+
+def publish_message(contact_name, email_address, subject, message):
+  gc = setup_gc()
+  
+  res = gc.open("Auto Leads").worksheet('Contact').append_row(
+    [contact_name, email_address, subject, message, str(datetime.now())], 
+    value_input_option='USER_ENTERED')
+
+  print(f'Result from contact gspread: {res}')
 
 if __name__ == "__main__":
-  publish_lead('Marius', 'Buleandra', 'mbuleandra@gmail.com', 3)
+  #publish_lead('Marius', 'Buleandra', 'mbuleandra@gmail.com', 3)
+  publish_message('Marius B', 'mbuleandra@gmail.com', 'Hello', 'Oh Hi There')
