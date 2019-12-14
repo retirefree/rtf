@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import ReactGA from 'react-ga';
+import { createBrowserHistory } from 'history';
 
 import './App.css';
 
@@ -17,6 +19,13 @@ import Contact from './components/Contact';
 
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 
+const history = createBrowserHistory();
+// Initialize google analytics page view tracking
+history.listen(location => {
+  ReactGA.set({ page: location.pathname }); // Update the user's current page
+  ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
+
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -30,7 +39,7 @@ class App extends React.Component {
 	
 	render() {
     return (
-			<Router>
+			<Router history={history}>
 				<div className="App" data-aos='fade-up'>
 					<QuoteBlockSection/>
 					<NavBarSection/>
