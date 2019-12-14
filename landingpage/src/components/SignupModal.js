@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import Loader from 'react-loader-spinner'
+import ReactGA from 'react-ga';
 
 function ThankYou({show, onClose}) {
   return(
@@ -78,6 +79,10 @@ export default function SignupModal({show, onSignup, onClose, product, completed
 
   const handleSignUp = e => {
     e.preventDefault();
+    ReactGA.event({
+      category: "Sign Up",
+      action: "User Completed Signup"
+    });
     if (onSignup) {
       setLoading(true);
       onSignup(firstName, lastName, emailAddress, product).then(() => {

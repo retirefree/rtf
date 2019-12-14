@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import qs from 'qs';
+import ReactGA from 'react-ga';
 
 import AnnuityTable from './sections/annuity_table';
 import InvestmentAmountInput from './sections/amount_input';
@@ -74,6 +75,10 @@ function Quotes({ match, location }) {
 
   const handleSearchQuotes = (event) => {
     event.preventDefault();
+    ReactGA.event({
+      category: "Quotes Search Quotes",
+      action: "User Clicked Search Quotes in Quotes Screen",
+    });
     reloadQuotes();
   }
 
