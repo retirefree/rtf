@@ -9,7 +9,7 @@ class NavBar extends React.Component {
             className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" 
             id="ftco-navbar">
             <div className="container">
-                <a className="navbar-brand" href="/">RetireFree</a>
+                <a className="navbar-brand" href="/">Easy Annuities</a>
                 <button 
                     className="navbar-toggler"
                     type="button" 
