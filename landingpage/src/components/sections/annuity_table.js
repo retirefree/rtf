@@ -1,5 +1,6 @@
 import React from 'react';
 import querystring from 'querystring';
+import ReactGA from 'react-ga';
 
 import {
   useTable,
@@ -231,6 +232,10 @@ class AnnuityTable extends React.Component {
           className="apply-button" 
           onClick={e => {
             e.preventDefault();
+            ReactGA.event({
+              category: "Apply Now",
+              action: "User Clicked Apply Now Link"
+            });
             this.handleApply(value)
             }}>
             Apply Now >

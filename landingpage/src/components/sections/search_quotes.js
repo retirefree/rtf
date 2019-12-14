@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import qs from 'qs';
+import ReactGA from 'react-ga';
 
 import InvestmentAmountInput from './amount_input';
 import FederalStateSelect from './federal_state_select';
@@ -16,6 +17,10 @@ export default function SearchQuotes({ history }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    ReactGA.event({
+      category: "Home Search Quotes",
+      action: "User Clicked Search Quotes in Home Screen",
+    });
     const params = {
       amount: amountDollars,
       state: federalState,
