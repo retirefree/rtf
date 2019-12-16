@@ -21,7 +21,7 @@ class Testimonials extends React.Component {
                       <p className="mb-4">Great team and support! After being sold policies in the past by financial advisors that were VERY hard to understand, Easy Annuities made sure I understood everything I was considering.  I highly recommend.</p>
                       <p></p>
                       <div className="d-flex align-items-center">
-                        <div className="user-img" style={{backgroundImage: "url(images/b-man.jpg)"}}></div>
+                        <div className="user-img" style={{backgroundImage: "url(images/a-man.jpg)"}}></div>
                         <div className="pl-3">
                           <p className="name">Roger Scott</p>
                           <span className="position">Marketing Manager, Connecticut</span>
