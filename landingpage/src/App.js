@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
 
@@ -28,10 +28,6 @@ history.listen(location => {
 });
 
 class App extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-	
 	componentDidMount() {
     AOS.init({
 			duration : 800
@@ -40,7 +36,7 @@ class App extends React.Component {
 	
 	render() {
     return (
-			<Router history={history}>
+			<Router>
 				<ScrollToTop>
 					<div className="App" data-aos='fade-up'>
 						<QuoteBlockSection/>

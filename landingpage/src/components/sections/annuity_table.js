@@ -13,8 +13,6 @@ import {
 
 import styled from 'styled-components'
 
-import { makeData, annuityObjs } from './make_data'
-
 
 const Styles = styled.div`
   padding: 0 1rem;
