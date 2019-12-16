@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 class Footer extends React.Component {
   render() {
@@ -16,9 +18,9 @@ class Footer extends React.Component {
               <div className="ftco-footer-widget mb-4 ml-md-4" align="left">
                 <h2 className="ftco-heading-2">About Easy Annuities</h2>
                 <ul className="list-unstyled">
-                  <li><a href="#"><span className="icon-long-arrow-right mr-2"></span>Home</a></li>
-                  <li><a href="/quotes"><span className="icon-long-arrow-right mr-2"></span>Quote</a></li>
-                  <li><a href="/contact"><span className="icon-long-arrow-right mr-2"></span>Contact us</a></li>
+                  <li><NavLink exact to="/"><span className="icon-long-arrow-right mr-2"></span>Home</NavLink></li>
+                  <li><NavLink exact to="/quotes"><span className="icon-long-arrow-right mr-2"></span>Quotes</NavLink></li>
+                  <li><NavLink exact to="/contact"><span className="icon-long-arrow-right mr-2"></span>Contact us</NavLink></li>
                 </ul>
               </div>
             </div>
@@ -26,10 +28,10 @@ class Footer extends React.Component {
               <div className="ftco-footer-widget mb-4" align="left">
                 <h2 className="ftco-heading-2">Education</h2>
                 <ul className="list-unstyled">
-                  <li><a href="/school#description-1"><span className="icon-long-arrow-right mr-2"></span>What are Annuities?</a></li>
-                  <li><a href="/school#description-2"><span className="icon-long-arrow-right mr-2"></span>Are Annuities right for you?</a></li>
-                  <li><a href="/school#description-3"><span className="icon-long-arrow-right mr-2"></span>FAQs</a></li>
-                  <li><a href="/school#description-4"><span className="icon-long-arrow-right mr-2"></span>Buying Annuities Online</a></li>
+                  <li><Link to="/school#description-1"><span className="icon-long-arrow-right mr-2"></span>What are Annuities?</Link></li>
+                  <li><Link to="/school#description-2"><span className="icon-long-arrow-right mr-2"></span>Are Annuities right for you?</Link></li>
+                  <li><Link to="/school#description-3"><span className="icon-long-arrow-right mr-2"></span>FAQs</Link></li>
+                  <li><Link to="/school#description-4"><span className="icon-long-arrow-right mr-2"></span>Buying Annuities Online</Link></li>
                 </ul>
               </div>
             </div>
@@ -47,7 +49,7 @@ class Footer extends React.Component {
           <div className="row">
           <div className="col-md-12 text-center">
             <p>
-              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+              Copyright &copy; 2019. All rights reserved
             </p>
           </div>
         </div>
