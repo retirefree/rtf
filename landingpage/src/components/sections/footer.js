@@ -8,13 +8,13 @@ class Footer extends React.Component {
           <div className="row mb-5">
             <div className="col-md">
               <div className="ftco-footer-widget mb-4" align="left">
-                <h2 className="ftco-heading-2">RetireFree</h2>
+                <h2 className="ftco-heading-2">Easy Annuities</h2>
                 <p>The best retirement plan for you</p>
               </div>
             </div>
             <div className="col-md">
               <div className="ftco-footer-widget mb-4 ml-md-4" align="left">
-                <h2 className="ftco-heading-2">About RetireFree</h2>
+                <h2 className="ftco-heading-2">About Easy Annuities</h2>
                 <ul className="list-unstyled">
                   <li><a href="#"><span className="icon-long-arrow-right mr-2"></span>Home</a></li>
                   <li><a href="/quotes"><span className="icon-long-arrow-right mr-2"></span>Quote</a></li>
