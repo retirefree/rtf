@@ -58,7 +58,7 @@ function Quotes({ match, location }) {
 
   const reloadQuotes = () => {
     const params = {
-      amount: amountDollars,
+      amount: amountDollars || 0,
       state: federalState,
       term: termYears,
       rating: rating,
@@ -73,8 +73,7 @@ function Quotes({ match, location }) {
       .then(res => setQuotes(res['quotes']));
   }
 
-  const handleSearchQuotes = (event) => {
-    event.preventDefault();
+  const handleSearchQuotes = () => {
     ReactGA.event({
       category: "Quotes Search Quotes",
       action: "User Clicked Search Quotes in Quotes Screen",
@@ -99,7 +98,7 @@ function Quotes({ match, location }) {
     setSignupCompleted(true);
   }
 
-  useEffect(reloadQuotes, []);
+  useEffect(reloadQuotes, [amountDollars, federalState, termYears, rating, insurerName]);
 
   return (
     <>
@@ -157,7 +156,10 @@ function Quotes({ match, location }) {
                             type="submit" 
                             value="Search Quotes" 
                             className="form-control btn btn-primary"
-                            onClick={handleSearchQuotes}/>
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleSearchQuotes();
+                            }}/>
                         </div>
                       </div>
                     </div>
